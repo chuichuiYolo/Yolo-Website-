@@ -1,160 +1,286 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-<style>
-  * {
-    padding: 0;
-    margin: 0;
-  }
+    @font-face {
+      font-family: "FZLanTYJW";
+      src: url("./images/font1.TTF");
+    }
+    div {
+      font-family: "FZLanTYJW";
+    }
+    body {
+      font-family: "FZLanTYJW";
+      display: flex;
+      justify-content: center;
+    }
 
-  body {
-    display: flex;
-    justify-content: center;
-  }
+    #content {
+      width: 40vw;
+      background: #ffffff;
+      position: relative;
+      border-radius: 40px;
+      border: 8px solid black;
+      display: none;
+      padding: 4%;
+      padding-bottom: 0;
+      height: 100%;
+    }
 
-  #content {
-    width: 85vw;
-    background: #E5E0D5;
-    position: relative;
-    border-radius: 30px;
-    border: 8px solid black;
-    display: none;
-    padding: 4%;
-    height: 100%;
-  }
+    .close {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .close:hover {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: black;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
-  .close {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: white;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .close:hover {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: black;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+    .close-overlay {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
+    .close-overlay:hover {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close-hover.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
-  .close-overlay {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .close > img {
+      width: 50%;
+    }
 
-  .close-overlay:hover {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close-hover.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    #content .title h1 {
+      font-size: 40px;
+      text-align: center;
+    }
+    #content .title h3 {
+      font-size: 18px;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    #content .img {
+      display: flex;
+      justify-content: space-between;
+    }
+    #content .img img {
+      height: 150px;
+    }
+    #content .img2 {
+      height: 165px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    #content .img2 img {
+      width: 100%;
+      transform: translateY(-126px);
+    }
 
-  .close>img {
-    width: 50%;
-  }
+    #content .img3 {
+      height: 165px;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    #content .img3 img {
+      width: 100%;
+      transform: translateY(0);
+    }
 
-</style>
+    #content .color {
+      display: flex;
+    }
+    #content .color .box {
+      margin-right: 20px;
+    }
+    #content .font {
+      margin-top: 30px;
+    }
 
-<body>
-  <div id="content">
-    <div class="close" onclick="closePop()">
-      <div class="close-overlay"></div>
-      <!-- <img src="./images/close.png" /> -->
+    #content .color span {
+      display: block;
+      width: 140px;
+      height: 40px;
+      background-color: #1e388c;
+    }
+
+    #content .footer {
+      width: 100%;
+      height: 160px;
+      background: url(./images/wireless/bj.png);
+      background-size: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    #content .footer p:nth-child(1) {
+      margin-top: 40px;
+    }
+    #content .footer p {
+      color: #ffffff;
+      font-size: 13px;
+    }
+  </style>
+
+  <body>
+    <div id="content">
+      <div class="close" onclick="closePop()">
+        <div class="close-overlay"></div>
+        <!-- <img src="./images/close.png" /> -->
+      </div>
+
+      <div class="title">
+        <h1>拾智 Shiz</h1>
+        <h3>
+          "Shiz" is an intelligent operation guide suitable for the elderly.
+        </h3>
+      </div>
+
+      <div class="img">
+        <img src="./images/wireless/1.png" alt="" />
+        <img src="./images/wireless/2.png" alt="" />
+        <img src="./images/wireless/3.png" alt="" />
+      </div>
+      <div class="img2">
+        <img src="./images/wireless/4.png" alt="" />
+      </div>
+      <div class="img3">
+        <img src="./images/wireless/5.png" alt="" />
+      </div>
+
+      <div class="color">
+        <div class="box">
+          <h3>#E34A0</h3>
+          <span></span>
+        </div>
+        <div class="box">
+          <h3>#F1345F</h3>
+          <span style="background-color: #c25260"></span>
+        </div>
+      </div>
+
+      <div class="font">
+        <h4>Benefits:</h4>
+        <p>1.Help the elderly communicate with their children.</p>
+        <p>2.Lighten the burden of learning software for the elderly.</p>
+        <p>
+          3.In the use of software, to help the elderly improve the quality of
+          life.
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>We want the elderly to use</p>
+        <p>smart phones freely, not to be bothered by mobile phone problems,</p>
+        <p>
+          but to get in touch with their children conveniently and integrate
+        </p>
+        <p>into society to facilitate travel.</p>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 
-<script>
-  // 获取参数
-  window.addEventListener('message', function (event) {
-    const content = document.getElementById('content');
-    content.style.top = `${Number(event.data) + 20}px`
-    content.style.display = 'block';
-  });
-  // 关闭遮罩
-  function closePop() {
-    parent.postMessage("close", "*");
-  }
+  <script>
+    // 获取参数
+    window.addEventListener("message", function (event) {
+      const content = document.getElementById("content");
+      content.style.top = `${Number(event.data) + 20}px`;
+      content.style.display = "block";
+    });
+    // 关闭遮罩
+    function closePop() {
+      parent.postMessage("close", "*");
+    }
 
-
-  document.addEventListener("DOMContentLoaded", function() {
-      var carousel = document.querySelector('.carousel');
-      var images = carousel.querySelectorAll('img');
+    document.addEventListener("DOMContentLoaded", function () {
+      var carousel = document.querySelector(".carousel");
+      var images = carousel.querySelectorAll("img");
       var currentIndex = 0;
       var startX;
       var threshold = 50; // Drag threshold
-      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+      var indicatorsContainer = carousel.querySelector(".carousel-indicators");
 
       // Display initial image
-      images[currentIndex].style.display = 'block';
+      images[currentIndex].style.display = "block";
 
       // Create indicators
       for (var i = 0; i < images.length; i++) {
-        var indicator = document.createElement('span');
-        indicator.classList.add('indicator');
+        var indicator = document.createElement("span");
+        indicator.classList.add("indicator");
         if (i === currentIndex) {
-          indicator.classList.add('active');
+          indicator.classList.add("active");
         }
         indicatorsContainer.appendChild(indicator);
       }
 
       // Click event listener to switch to the next image
-      carousel.addEventListener('click', function () {
-        images[currentIndex].style.display = 'none';
-        indicatorsContainer.children[currentIndex].classList.remove('active');
+      carousel.addEventListener("click", function () {
+        images[currentIndex].style.display = "none";
+        indicatorsContainer.children[currentIndex].classList.remove("active");
         currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].style.display = 'block';
-        indicatorsContainer.children[currentIndex].classList.add('active');
+        images[currentIndex].style.display = "block";
+        indicatorsContainer.children[currentIndex].classList.add("active");
       });
 
       // Mouse drag event listeners to switch images
-      carousel.addEventListener('mousedown', function (event) {
+      carousel.addEventListener("mousedown", function (event) {
         startX = event.clientX;
         event.preventDefault();
       });
 
-      carousel.addEventListener('mouseup', function (event) {
+      carousel.addEventListener("mouseup", function (event) {
         var diffX = event.clientX - startX;
         if (diffX > threshold) {
           // Dragged to the right, switch to the previous image
-          images[currentIndex].style.display = 'none';
-          indicatorsContainer.children[currentIndex].classList.remove('active');
+          images[currentIndex].style.display = "none";
+          indicatorsContainer.children[currentIndex].classList.remove("active");
           currentIndex = (currentIndex - 1 + images.length) % images.length;
-          images[currentIndex].style.display = 'block';
-          indicatorsContainer.children[currentIndex].classList.add('active');
+          images[currentIndex].style.display = "block";
+          indicatorsContainer.children[currentIndex].classList.add("active");
         }
       });
     });
-</script>
-
+  </script>
 </html>

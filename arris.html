@@ -1,160 +1,184 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-<style>
-  * {
-    padding: 0;
-    margin: 0;
-  }
+    @font-face {
+      font-family: "FZLanTYJW";
+      src: url("./images/font1.TTF");
+    }
 
-  body {
-    display: flex;
-    justify-content: center;
-  }
+    div {
+      font-family: "FZLanTYJW";
+    }
+    body {
+      font-family: "FZLanTYJW";
+      display: flex;
+      justify-content: center;
+    }
 
-  #content {
-    width: 85vw;
-    background: #E5E0D5;
-    position: relative;
-    border-radius: 30px;
-    border: 8px solid black;
-    display: none;
-    padding: 4%;
-    height: 100%;
-  }
+    #content {
+      width: 20vw;
+      background: #875296;
+      position: relative;
+      border-radius: 30px;
+      border: 8px solid black;
+      display: none;
+      padding: 2%;
+      height: 100%;
+      color: #fff;
+    }
 
-  .close {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: white;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .close:hover {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: black;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+    .close {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .close:hover {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: black;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
+    .close-overlay {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
-  .close-overlay {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .close-overlay:hover {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close-hover.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
-  .close-overlay:hover {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close-hover.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .close > img {
+      width: 50%;
+    }
+    #content h2 {
+      color: #fff;
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+    #content video {
+      width: 100%;
+      margin-top: 40px;
+    }
+  </style>
 
-  .close>img {
-    width: 50%;
-  }
-
-</style>
-
-<body>
-  <div id="content">
-    <div class="close" onclick="closePop()">
-      <div class="close-overlay"></div>
-      <!-- <img src="./images/close.png" /> -->
+  <body>
+    <div id="content">
+      <div class="close" onclick="closePop()">
+        <div class="close-overlay"></div>
+        <!-- <img src="./images/close.png" /> -->
+      </div>
+      <h2>微生物丨万花筒</h2>
+      <p>
+        显微镜下的植物微生物与千变万化的万花筒结合，体现了这个复杂世界的简单法则。万花筒不是一个物件，它是一个美学概念透过表象折射我们的心境柔和万物，直至我们的心灵。
+      </p>
+      <video
+        autoplay
+        loop
+        muted
+        src="./images/arris/大艺术家cc 2023-06-06 20.28.43.mp4"
+      ></video>
     </div>
-  </div>
-</body>
+  </body>
 
-<script>
-  // 获取参数
-  window.addEventListener('message', function (event) {
-    const content = document.getElementById('content');
-    content.style.top = `${Number(event.data) + 20}px`
-    content.style.display = 'block';
-  });
-  // 关闭遮罩
-  function closePop() {
-    parent.postMessage("close", "*");
-  }
+  <script>
+    // 获取参数
+    window.addEventListener("message", function (event) {
+      const content = document.getElementById("content");
+      content.style.top = `${Number(event.data) + 20}px`;
+      content.style.display = "block";
+    });
+    // 关闭遮罩
+    function closePop() {
+      parent.postMessage("close", "*");
+    }
 
-
-  document.addEventListener("DOMContentLoaded", function() {
-      var carousel = document.querySelector('.carousel');
-      var images = carousel.querySelectorAll('img');
+    document.addEventListener("DOMContentLoaded", function () {
+      var carousel = document.querySelector(".carousel");
+      var images = carousel.querySelectorAll("img");
       var currentIndex = 0;
       var startX;
       var threshold = 50; // Drag threshold
-      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+      var indicatorsContainer = carousel.querySelector(".carousel-indicators");
 
       // Display initial image
-      images[currentIndex].style.display = 'block';
+      images[currentIndex].style.display = "block";
 
       // Create indicators
       for (var i = 0; i < images.length; i++) {
-        var indicator = document.createElement('span');
-        indicator.classList.add('indicator');
+        var indicator = document.createElement("span");
+        indicator.classList.add("indicator");
         if (i === currentIndex) {
-          indicator.classList.add('active');
+          indicator.classList.add("active");
         }
         indicatorsContainer.appendChild(indicator);
       }
 
       // Click event listener to switch to the next image
-      carousel.addEventListener('click', function () {
-        images[currentIndex].style.display = 'none';
-        indicatorsContainer.children[currentIndex].classList.remove('active');
+      carousel.addEventListener("click", function () {
+        images[currentIndex].style.display = "none";
+        indicatorsContainer.children[currentIndex].classList.remove("active");
         currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].style.display = 'block';
-        indicatorsContainer.children[currentIndex].classList.add('active');
+        images[currentIndex].style.display = "block";
+        indicatorsContainer.children[currentIndex].classList.add("active");
       });
 
       // Mouse drag event listeners to switch images
-      carousel.addEventListener('mousedown', function (event) {
+      carousel.addEventListener("mousedown", function (event) {
         startX = event.clientX;
         event.preventDefault();
       });
 
-      carousel.addEventListener('mouseup', function (event) {
+      carousel.addEventListener("mouseup", function (event) {
         var diffX = event.clientX - startX;
         if (diffX > threshold) {
           // Dragged to the right, switch to the previous image
-          images[currentIndex].style.display = 'none';
-          indicatorsContainer.children[currentIndex].classList.remove('active');
+          images[currentIndex].style.display = "none";
+          indicatorsContainer.children[currentIndex].classList.remove("active");
           currentIndex = (currentIndex - 1 + images.length) % images.length;
-          images[currentIndex].style.display = 'block';
-          indicatorsContainer.children[currentIndex].classList.add('active');
+          images[currentIndex].style.display = "block";
+          indicatorsContainer.children[currentIndex].classList.add("active");
         }
       });
     });
-</script>
-
+  </script>
 </html>

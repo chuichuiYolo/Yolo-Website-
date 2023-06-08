@@ -1,169 +1,368 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    @font-face {
+      font-family: "FZLanTYJW";
+      src: url("./images/font1.TTF");
+    }
+    div {
+      font-family: "FZLanTYJW";
+    }
+    body {
+      display: flex;
 
-<style>
-  * {
-    padding: 0;
-    margin: 0;
-  }
+      justify-content: center;
+    }
 
-  body {
-    display: flex;
-    justify-content: center;
-  }
+    #content {
+      width: 45vw;
+      background: #9d864e;
+      position: relative;
+      border-radius: 30px;
+      border: 8px solid black;
+      display: none;
+      padding: 4%;
+      height: 100%;
+    }
 
-  #content {
-    width: 45vw;
-    background: #9D864E;
-    position: relative;
-    border-radius: 30px;
-    border: 8px solid black;
-    display: none;
-    padding: 4%;
-    height: 100%;
-  }
+    .close {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .close:hover {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: black;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
-  .close {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: white;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .close:hover {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: black;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+    .close-overlay {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
+    .close-overlay:hover {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close-hover.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
-  .close-overlay {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .close > img {
+      width: 50%;
+    }
 
-  .close-overlay:hover {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close-hover.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .right-title {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      /* flex: 8; */
+      height: 90%;
+    }
 
-  .close>img {
-    width: 50%;
-  }
+    .close .close-overlay h1 {
+      text-align: center;
+    }
+    #content .title h1 {
+      font-size: 50px;
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    #content .title h4 {
+      color: #fff;
+      font-size: 20px;
+      text-align: center;
+    }
+    #content .img {
+      margin-top: 30px;
+      text-align: right;
+    }
+    #content .font {
+      text-align: left;
+      margin-top: 50px;
+      margin-left: 40%;
+    }
+    #content .font p {
+      font-size: 20px;
+      color: #fff;
+    }
+    #content .img_font {
+      width: 100%;
+      display: flex;
+    }
+    #content .img_font .img {
+      width: 50%;
+      overflow-x: hidden;
+    }
+    #content .img_font .font {
+      width: 50%;
+      margin-left: 0;
+      margin-top: 30px;
+    }
+    #content .img_font img {
+      width: 260%;
+      transform: translateX(-270px);
+    }
+    #content .img_font p:nth-child(1) {
+      margin-left: 40px;
+    }
+    #content .img_font p:nth-child(2) {
+      margin-left: 40%;
+      margin-top: 20px;
+    }
 
-  .right-title{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    /* flex: 8; */
-    height: 90%;
-  }
+    #content .font_img {
+      display: flex;
+      margin-top: 50px;
+    }
+    #content .font_img .font2 {
+      width: 43%;
+      padding-top: 140px;
+      padding-left: 60px;
+    }
+    #content .font_img .img2 {
+      width: 50%;
+    }
+    #content .font_img .img2 img {
+      height: 218px;
+    }
+    #content .font_img .font2 p {
+      color: #fff;
+      font-size: 20px;
+    }
 
-</style>
+    #content .img_font3 {
+      display: flex;
+      margin-top: 20px;
+    }
+    #content .img_font3 .img3 {
+      width: 50%;
+      margin-top: 50px;
+    }
 
-<body>
-  <div id="content">
-    <div class="close" onclick="closePop()">
-      <div class="close-overlay"></div>
-      <!-- <img src="./images/close.png" /> -->
+    #content .img_font3 .font3 p:nth-child(1) {
+      margin-top: 20px;
+    }
+    #content .img_font3 .font3 p {
+      color: #fff;
+      font-size: 20px;
+      margin-left: 50px;
+    }
+  </style>
+
+  <body>
+    <div id="content">
+      <div class="close" onclick="closePop()">
+        <div class="close-overlay"></div>
+      </div>
+      <div class="title">
+        <h1>Coffee Laboratory</h1>
+        <h4>A community coffee station</h4>
+      </div>
+      <div class="img">
+        <img src="./images/desk/资源 92.png" alt="" />
+      </div>
+      <div class="font">
+        <p>
+          LED signboard lamp <br />
+          On the left is the <br />
+          coffee mood detector, <br />
+          which lights up according <br />
+          to different moods.
+        </p>
+      </div>
+      <div class="img_font">
+        <div class="img">
+          <img src="./images/desk/IMG_1055.PNG" alt="" />
+        </div>
+        <div class="font">
+          <p>
+            Four rooms function <br />
+            1.Extract caffeine from <br />
+            coffee beans. <br />
+            2.Hallucinations <br />
+            caused by excessive <br />
+            collection of coffee. <br />
+            3.Sell coffee products. <br />
+            4.Coffee labs develop <br />
+            coffee with different <br />
+            tastes
+          </p>
+          <p>
+            Coffee liquid reser- <br />
+            voir Huge transpar- <br />
+            ent glassware that <br />
+            stores coffee liquid <br />
+            ground from coffee <br />
+            beans from under- <br />
+            ground warehouses, <br />
+            which can be said to <br />
+            be the lifeblood of <br />
+            the entire building, <br />
+            which is usually <br />
+            transported through <br />
+            pipes all over the <br />
+            building.
+          </p>
+        </div>
+      </div>
+      <div class="font_img">
+        <div class="font2">
+          <p>
+            The blue room provides <br />
+            better service, better <br />
+            coffee and some coffee <br />
+            entertoinment for vip Cofe <br />
+            The green room is an ordi- <br />
+            nary coffee shop, open to <br />
+            all people in the communi- <br />
+            ty, without threshold re- <br />
+            quirements. But it can ac- <br />
+            commodate more people at <br />
+            the same time, and the <br />
+            service is not as good as <br />
+            that of vip Cafe.
+          </p>
+        </div>
+        <div class="img2">
+          <img src="./images/desk/资源 88.png" alt=""/>
+        </div>
+      </div>
+
+      <div class="img_font3">
+        <div class="img3">
+          <img src="./images/desk/资源 83.png" height="360" alt="" />
+        </div>
+        <div class="font3">
+          <p>Back view of the building</p>
+          <br />
+          <p>
+            When you enlarge the back <br />
+            of the building, you can see <br />
+            the construction on the <br />
+            back in detail. And how the <br />
+            customer enters the interior <br />
+            of the building from the <br />
+            stairs.
+          </p>
+        </div>
+      </div>
+
+      <div class="img_font3">
+        <div class="font3">
+          <p>Coffee bean storeroom</p>
+          <br />
+          <p>
+            The storeroom is located <br />
+            underaround and contains a <br />
+            large number of coffee <br />
+            beans.
+          </p>
+        </div>
+        <div class="img3">
+          <img src="./images/desk/资源 80.png" alt="" width="370" />
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 
-<script>
-  // 获取参数
-  window.addEventListener('message', function (event) {
-    const content = document.getElementById('content');
-    content.style.top = `${Number(event.data) + 20}px`
-    content.style.display = 'block';
-  });
-  // 关闭遮罩
-  function closePop() {
-    parent.postMessage("close", "*");
-  }
+  <script>
+    // 获取参数
+    window.addEventListener("message", function (event) {
+      const content = document.getElementById("content");
+      content.style.top = `${Number(event.data) + 20}px`;
+      content.style.display = "block";
+    });
+    // 关闭遮罩
+    function closePop() {
+      parent.postMessage("close", "*");
+    }
 
-
-  document.addEventListener("DOMContentLoaded", function() {
-      var carousel = document.querySelector('.carousel');
-      var images = carousel.querySelectorAll('img');
+    document.addEventListener("DOMContentLoaded", function () {
+      var carousel = document.querySelector(".carousel");
+      var images = carousel.querySelectorAll("img");
       var currentIndex = 0;
       var startX;
       var threshold = 50; // Drag threshold
-      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+      var indicatorsContainer = carousel.querySelector(".carousel-indicators");
 
       // Display initial image
-      images[currentIndex].style.display = 'block';
+      images[currentIndex].style.display = "block";
 
       // Create indicators
       for (var i = 0; i < images.length; i++) {
-        var indicator = document.createElement('span');
-        indicator.classList.add('indicator');
+        var indicator = document.createElement("span");
+        indicator.classList.add("indicator");
         if (i === currentIndex) {
-          indicator.classList.add('active');
+          indicator.classList.add("active");
         }
         indicatorsContainer.appendChild(indicator);
       }
 
       // Click event listener to switch to the next image
-      carousel.addEventListener('click', function () {
-        images[currentIndex].style.display = 'none';
-        indicatorsContainer.children[currentIndex].classList.remove('active');
+      carousel.addEventListener("click", function () {
+        images[currentIndex].style.display = "none";
+        indicatorsContainer.children[currentIndex].classList.remove("active");
         currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].style.display = 'block';
-        indicatorsContainer.children[currentIndex].classList.add('active');
+        images[currentIndex].style.display = "block";
+        indicatorsContainer.children[currentIndex].classList.add("active");
       });
 
       // Mouse drag event listeners to switch images
-      carousel.addEventListener('mousedown', function (event) {
+      carousel.addEventListener("mousedown", function (event) {
         startX = event.clientX;
         event.preventDefault();
       });
 
-      carousel.addEventListener('mouseup', function (event) {
+      carousel.addEventListener("mouseup", function (event) {
         var diffX = event.clientX - startX;
         if (diffX > threshold) {
           // Dragged to the right, switch to the previous image
-          images[currentIndex].style.display = 'none';
-          indicatorsContainer.children[currentIndex].classList.remove('active');
+          images[currentIndex].style.display = "none";
+          indicatorsContainer.children[currentIndex].classList.remove("active");
           currentIndex = (currentIndex - 1 + images.length) % images.length;
-          images[currentIndex].style.display = 'block';
-          indicatorsContainer.children[currentIndex].classList.add('active');
+          images[currentIndex].style.display = "block";
+          indicatorsContainer.children[currentIndex].classList.add("active");
         }
       });
     });
-</script>
-
+  </script>
 </html>

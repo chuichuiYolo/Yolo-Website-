@@ -1,160 +1,267 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-</head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
 
-<style>
-  * {
-    padding: 0;
-    margin: 0;
-  }
+    @font-face {
+      font-family: "FZLanTYJW";
+      src: url("./images/font1.TTF");
+    }
+    div {
+      font-family: "FZLanTYJW";
+    }
+    body {
+      display: flex;
 
-  body {
-    display: flex;
-    justify-content: center;
-  }
+      justify-content: center;
+    }
 
-  #content {
-    width: 85vw;
-    background: #E5E0D5;
-    position: relative;
-    border-radius: 30px;
-    border: 8px solid black;
-    display: none;
-    padding: 4%;
-    height: 100%;
-  }
+    #content {
+      width: 35vw;
+      background: #000000;
+      position: relative;
+      border-radius: 50px;
+      border: 3px solid blue;
+      display: none;
+      padding: 4%;
+      height: 100%;
+      color: #fff;
+    }
 
-  .close {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: white;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .close:hover {
-    position: absolute;
-    top: -40px;
-    right: -3%;
-    width: 80px;
-    height: 80px;
-    background: black;
-    border: 8px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+    .close {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: white;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .close:hover {
+      position: absolute;
+      top: -40px;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: black;
+      border: 8px solid black;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
+    .close-overlay {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
-  .close-overlay {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .close-overlay:hover {
+      cursor: pointer;
+      width: 80px;
+      height: 80px;
+      background: url("./images/close-hover.png");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      background-position: center center;
+    }
 
-  .close-overlay:hover {
-    cursor: pointer;
-    width: 80px;
-    height: 80px;
-    background: url('./images/close-hover.png');
-    background-repeat: no-repeat;
-    background-size: 40px 40px;
-    background-position: center center;
-  }
+    .close > img {
+      width: 50%;
+    }
 
-  .close>img {
-    width: 50%;
-  }
+    #content h1 {
+      font-size: 45px;
+      margin-bottom: 30px;
+    }
+    #content h3 {
+      font-size: 24px;
+    }
+    #content .ip {
+      display: flex;
+      justify-content: space-between;
+    }
+    #content .ip img {
+      /* height: 120px; */
+      /* height: 1%; */
+      width: 25%;
+    }
 
-</style>
+    #content .Model {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    #content .Model img {
+      /* height: 310px; */
+      width: 45%;
+    }
+    #content .Post img {
+      /* height: 440px; */
+      width: 45%;
+    }
+    #content .Materials img {
+      /* height: 240px; */
+      width: 30%;
+    }
+    #content .last_img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #content .last_img img {
+      display: block;
+      width: 60%;
+      /* height: 130px; */
+      margin-bottom: 10px;
+    }
+  </style>
 
-<body>
-  <div id="content">
-    <div class="close" onclick="closePop()">
-      <div class="close-overlay"></div>
-      <!-- <img src="./images/close.png" /> -->
+  <body>
+    <div id="content">
+      <div class="close" onclick="closePop()">
+        <div class="close-overlay"></div>
+        <!-- <img src="./images/close.png" /> -->
+      </div>
+      <h1>SEA THORN</h1>
+      <h3>IP</h3>
+      <div class="ip">
+        <img src="./images/IP/1.png" alt="" />
+        <img src="./images/IP/2.png" alt="" style="transform: scale(1.5);" />
+        <img src="./images/IP/3.png" alt="" />
+        <img src="./images/IP/4.png" alt="" style="transform: scale(1.5);" />
+      </div>
+
+      <h3>Model</h3>
+      <div class="Model">
+        <img src="./images/Model/WechatIMG93609.jpeg" alt="" />
+        <img src="./images/Model/WechatIMG93610.jpeg" alt="" />
+      </div>
+      <h3>Posts</h3>
+      <div class="Model Post">
+        <img src="./images/Post/WechatIMG93607.jpeg" alt="" />
+        <img src="./images/Post/WechatIMG93608.jpeg" alt="" />
+      </div>
+
+      <div class="font">
+        <h2>Concept</h2>
+        <p>
+          A thorn in the side, piercing through the mask on the face, piercing
+          through the repression in the heart, piercing through the madness of
+          repression.
+        </p>
+        <br />
+        <p>
+          A thorn in the body, piercing the surface of the camouflage, piercing
+          the dark clouds overhead, piercing the gap between each other.
+        </p>
+        <br />
+        <p>
+          In this noisy world where people can't tell the difference between the
+          north and the south, there are so many hidden and uncomfortable
+          feelings that are repressed in the bottom of the heart, screaming for
+          madness and catharsis. The nerves that have been repressed for so long
+          need to be stimulated by pain, and the sting gives people the thrill
+          of madness. This is the Eden of madness, the garden of the mad. In
+          this brief orgy, everyone is a wanderer, a hollow man, free of
+          responsibility, free of constraints, free from the responsibilities
+          imposed by society, free to unleash the madness repressed in his
+          heart.
+        </p>
+      </div>
+
+      <h3 style="margin-top: 20px">Materials</h3>
+      <div class="Model Materials">
+        <img src="./images/Materials/1.png" alt="" />
+        <img src="./images/Materials/2.png" alt="" />
+        <img src="./images/Materials/3.png" alt="" />
+      </div>
+      <div class="last_img">
+        <img src="./images/Materials/4.png" alt="" />
+        <img src="./images/Materials/5.png" alt="" />
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 
-<script>
-  // 获取参数
-  window.addEventListener('message', function (event) {
-    const content = document.getElementById('content');
-    content.style.top = `${Number(event.data) + 20}px`
-    content.style.display = 'block';
-  });
-  // 关闭遮罩
-  function closePop() {
-    parent.postMessage("close", "*");
-  }
+  <script>
+    // 获取参数
+    window.addEventListener("message", function (event) {
+      const content = document.getElementById("content");
+      content.style.top = `${Number(event.data) + 20}px`;
+      content.style.display = "block";
+    });
+    // 关闭遮罩
+    function closePop() {
+      parent.postMessage("close", "*");
+    }
 
-
-  document.addEventListener("DOMContentLoaded", function() {
-      var carousel = document.querySelector('.carousel');
-      var images = carousel.querySelectorAll('img');
+    document.addEventListener("DOMContentLoaded", function () {
+      var carousel = document.querySelector(".carousel");
+      var images = carousel.querySelectorAll("img");
       var currentIndex = 0;
       var startX;
       var threshold = 50; // Drag threshold
-      var indicatorsContainer = carousel.querySelector('.carousel-indicators');
+      var indicatorsContainer = carousel.querySelector(".carousel-indicators");
 
       // Display initial image
-      images[currentIndex].style.display = 'block';
+      images[currentIndex].style.display = "block";
 
       // Create indicators
       for (var i = 0; i < images.length; i++) {
-        var indicator = document.createElement('span');
-        indicator.classList.add('indicator');
+        var indicator = document.createElement("span");
+        indicator.classList.add("indicator");
         if (i === currentIndex) {
-          indicator.classList.add('active');
+          indicator.classList.add("active");
         }
         indicatorsContainer.appendChild(indicator);
       }
 
       // Click event listener to switch to the next image
-      carousel.addEventListener('click', function () {
-        images[currentIndex].style.display = 'none';
-        indicatorsContainer.children[currentIndex].classList.remove('active');
+      carousel.addEventListener("click", function () {
+        images[currentIndex].style.display = "none";
+        indicatorsContainer.children[currentIndex].classList.remove("active");
         currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].style.display = 'block';
-        indicatorsContainer.children[currentIndex].classList.add('active');
+        images[currentIndex].style.display = "block";
+        indicatorsContainer.children[currentIndex].classList.add("active");
       });
 
       // Mouse drag event listeners to switch images
-      carousel.addEventListener('mousedown', function (event) {
+      carousel.addEventListener("mousedown", function (event) {
         startX = event.clientX;
         event.preventDefault();
       });
 
-      carousel.addEventListener('mouseup', function (event) {
+      carousel.addEventListener("mouseup", function (event) {
         var diffX = event.clientX - startX;
         if (diffX > threshold) {
           // Dragged to the right, switch to the previous image
-          images[currentIndex].style.display = 'none';
-          indicatorsContainer.children[currentIndex].classList.remove('active');
+          images[currentIndex].style.display = "none";
+          indicatorsContainer.children[currentIndex].classList.remove("active");
           currentIndex = (currentIndex - 1 + images.length) % images.length;
-          images[currentIndex].style.display = 'block';
-          indicatorsContainer.children[currentIndex].classList.add('active');
+          images[currentIndex].style.display = "block";
+          indicatorsContainer.children[currentIndex].classList.add("active");
         }
       });
     });
-</script>
-
+  </script>
 </html>
